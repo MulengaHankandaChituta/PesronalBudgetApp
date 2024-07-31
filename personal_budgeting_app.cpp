@@ -9,12 +9,12 @@
 using namespace std;
 
 // Transaction class definition
-// The Transaction class definition represents a financial transaction (income or expense)
+// The Transaction class represents a financial transaction (income or expense)
 // It stores information such as transaction type, amount, category, description, and date
 class Transaction {
 public:
     // Enum to differentiate between income and expense transactions
-    enum class Type {INCOME, EXPENSE};
+    enum class Type { INCOME, EXPENSE };
 
     // Member variables to store transaction details
     Type type;             // Transaction type (INCOME or EXPENSE)
@@ -29,9 +29,9 @@ public:
         : type(type), amount(amount), category(category), description(description), date(getCurrentDate()) {}
 
     // Function to get the current date in YYYY-MM-DD format
-    string getCurrentDate() {
+    string getCurrentDate() const {
         time_t now = time(0);
-        tm *ltm = localtime(&now);
+        tm* ltm = localtime(&now);
 
         stringstream ss;
         ss << 1900 + ltm->tm_year << "-"
@@ -39,5 +39,20 @@ public:
            << setw(2) << setfill('0') << ltm->tm_mday;
         return ss.str();
     }
-}; 
 
+    // Accessor methods for the transaction attributes
+    Type getType() const { return type; }
+    double getAmount() const { return amount; }
+    string getCategory() const { return category; }
+    string getDescription() const { return description; }
+    string getDate() const { return date; }
+
+    // Function to display transaction details
+    void display() const {
+        cout << "Date: " << date << ", "
+             << "Type: " << (type == Type::INCOME ? "Income" : "Expense") << ", "
+             << "Amount: ZMW" << fixed << setprecision(2) << amount << ", "
+             << "Category: " << category << ", "
+             << "Description: " << description << endl;
+    }
+};
