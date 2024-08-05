@@ -40,7 +40,7 @@ public:
         return ss.str();
     }
 
-    // Accessor methods for the transaction attributes
+    // Accessor methods for the transaction attributes 
     Type getType() const { return type; }
     double getAmount() const { return amount; }
     string getCategory() const { return category; }
@@ -55,4 +55,10 @@ public:
              << "Category: " << category << ", "
              << "Description: " << description << endl;
     }
+    Private:
+        Type type: // Type of transaction (INCOME or EXPENSE)
+        double amount: // Amount of the transaction
+        string category; // Category of transaction (e.g., "Food" "Rent")
+        string description; // Description of the transaction
+        string date; // Date of the transaction in YYYY-MM-DD format
 };
