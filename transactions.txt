@@ -1,0 +1,9 @@
+Expense 20 food food
+Expense 3 6 food
+Expense 50 4 food
+Income 2000 2 food
+Income 2000 3 food
+Income 200 2 food
+Income 100 salary august salary
+Expense 20 groceries monthly shopping
+Income 200 salary groceries
